@@ -46,7 +46,7 @@ namespace robot_status_relay_handler
 
 bool RobotStatusRelayHandler::init(SmplMsgConnection* connection)
 {
-  this->pub_robot_status_ = this->node_.advertise<industrial_msgs::RobotStatus>("robot_status", 1);
+  this->pub_robot_status_ = this->node_.advertise<industrial_msgs::RobotStatus>("UR52/robot_status", 1);
   return init((int)StandardMsgTypes::STATUS, connection);
 }
 

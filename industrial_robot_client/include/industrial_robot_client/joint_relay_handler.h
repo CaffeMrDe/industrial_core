@@ -90,7 +90,8 @@ protected:
   ros::Publisher pub_joint_control_state_;
   ros::Publisher pub_joint_sensor_state_;
   ros::NodeHandle node_;
-
+  std::string defualt_feedback_states_name;
+  std::string defualt_joint_states_name;
   /**
    * \brief Convert joint message into publish message-types
    *

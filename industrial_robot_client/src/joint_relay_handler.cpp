@@ -45,8 +45,16 @@ namespace joint_relay_handler
 
 bool JointRelayHandler::init(SmplMsgConnection* connection, std::vector<std::string>& joint_names)
 {
+  //TODO 添加支持feedback_states和joint_states可以自由修改名字
+  defualt_feedback_states_name = "feedback_states" ;
+  defualt_joint_states_name = "joint_states" ;
+
+  std:string  feedback_states_name,joint_states_name;
+  ros::param::param<std::string>("feedback_states", feedback_states_name, defualt_feedback_states_name);
+  ros::param::param<std::string>("joint_states", joint_states_name, defualt_joint_states_name);
+
   this->pub_joint_control_state_ =
-          this->node_.advertise<control_msgs::FollowJointTrajectoryFeedback>("feedback_states", 1);
+          this->node_.advertise<control_msgs::FollowJointTrajectoryFeedback>("feedback_states_name", 1);
 
   this->pub_joint_sensor_state_ = this->node_.advertise<sensor_msgs::JointState>("joint_states",1);
 

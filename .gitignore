@@ -25,3 +25,5 @@ CATKIN_IGNORE*
 .pydevproject
 .project
 .cproject
+build
+*txt.user*
